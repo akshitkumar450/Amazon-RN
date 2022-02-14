@@ -1,12 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  AntDesign,
-  MaterialIcons,
-  Ionicons,
-  Feather,
-} from "@expo/vector-icons";
-import { Pressable, View } from "react-native";
+import { AntDesign, Ionicons, Feather } from "@expo/vector-icons";
 import HomeScreen from "../screens/HomeScreen";
+import CartScreen from "../screens/CartScreen";
+import HomeStack from "./HomeStack";
+import CartStack from "./CartStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,10 +14,13 @@ export default function BottomTabNavigator() {
         tabBarStyle: {
           height: 50,
         },
+        tabBarActiveTintColor: "#e47911",
+        tabBarShowLabel: false, //to hide label
       }}>
       <Tab.Screen
-        name={"Home"}
-        component={HomeScreen}
+        name={"HomeStack"}
+        // nested navigation
+        component={HomeStack}
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
@@ -28,43 +28,36 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
+
       <Tab.Screen
-        name={"Coming Soon"}
+        name={"profile"}
         component={HomeScreen}
         options={{
           title: "Coming soon",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="video-library" size={24} color={color} />
-          ),
-          headerRight: () => (
-            <View>
-              <View>
-                <Feather name="cast" color="black" size={25} />
-              </View>
-            </View>
-          ),
-          headerLeft: () => (
-            <Pressable>
-              <Ionicons name="chevron-back-outline" size={25} color="black" />
-            </Pressable>
+            <Ionicons name="person" size={24} color={color} />
           ),
         }}
       />
+
       <Tab.Screen
-        name={"Search"}
-        component={HomeScreen}
+        name={"CartStack"}
+        // nested navigation
+        component={CartStack}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Ionicons name="search" size={24} color={color} />
+            <AntDesign name="shoppingcart" size={24} color={color} />
           ),
         }}
       />
+
       <Tab.Screen
-        name={"Downloads"}
+        name={"more"}
         component={HomeScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <AntDesign name="download" size={24} color={color} />
+            <Feather name="menu" size={24} color="black" color={color} />
           ),
         }}
       />

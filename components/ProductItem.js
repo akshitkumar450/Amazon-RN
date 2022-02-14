@@ -1,10 +1,21 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
 import { FontAwesome } from "@expo/vector-icons";
-const ProductItem = ({ image, title, price, oldPrice, ratings, avgRating }) => {
+import { useNavigation } from "@react-navigation/native";
+const ProductItem = ({
+  image,
+  title,
+  price,
+  oldPrice,
+  ratings,
+  avgRating,
+  id,
+}) => {
+  const navigation = useNavigation();
   return (
-    <View
+    <Pressable
+      onPress={() => navigation.navigate("ProductScreen", { id: id })}
       style={tw`border-2  flex-row items-center overflow-hidden border-gray-300 rounded-md my-2`}>
       <Image
         source={{
@@ -50,7 +61,7 @@ const ProductItem = ({ image, title, price, oldPrice, ratings, avgRating }) => {
           )}
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

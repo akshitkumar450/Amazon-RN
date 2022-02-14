@@ -11,7 +11,7 @@ import tw from "tailwind-react-native-classnames";
 import { Picker } from "@react-native-picker/picker";
 import { getNames } from "country-list";
 import Button from "../components/Button";
-const AddressForm = () => {
+const AddressFormScreen = () => {
   const countries = getNames();
   const [selected, setSelected] = useState(countries[0]);
   const [name, setName] = useState("");
@@ -30,7 +30,9 @@ const AddressForm = () => {
     <KeyboardAvoidingView
       keyboardVerticalOffset={Platform.OS === "android" ? 50 : 10}
       behavior={Platform.OS === "android" ? "height" : "padding"}>
-      <ScrollView style={tw`px-2 h-full bg-gray-100`}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={tw`px-2 h-full bg-gray-100`}>
         <View style={tw`border-2  border-gray-300 rounded-md my-2`}>
           <Picker
             selectedValue={selected}
@@ -99,4 +101,4 @@ const AddressForm = () => {
   );
 };
 
-export default AddressForm;
+export default AddressFormScreen;

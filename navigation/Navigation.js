@@ -2,17 +2,16 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabNavigator from "./BottomTabNavigator";
-import HomeScreen from "../screens/HomeScreen";
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="HomeBottom"
-          component={HomeScreen}
+          name="HomeBottomTab"
+          component={BottomTabNavigator}
           options={{
-            headerShown: true,
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

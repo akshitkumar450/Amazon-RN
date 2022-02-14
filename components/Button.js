@@ -2,9 +2,10 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
 
-const Button = ({ title }) => {
+const Button = ({ title, onPress }) => {
   return (
     <Pressable
+      onPress={onPress}
       style={[
         {
           backgroundColor: "#efc00a",

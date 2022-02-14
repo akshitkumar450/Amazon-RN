@@ -19,6 +19,7 @@ const HomeScreen = () => {
             oldPrice={item.oldPrice}
             ratings={item.ratings}
             avgRating={item.avgRating}
+            id={item.id}
           />
         )}
       />

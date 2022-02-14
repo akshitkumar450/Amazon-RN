@@ -6,9 +6,12 @@ import product from "../assets/product";
 import QtyButton from "../components/QtyButton";
 import Button from "../components/Button";
 import ImageCarousel from "../components/ImageCarousel";
+import { useRoute } from "@react-navigation/native";
 const ProductScreen = () => {
   const [selected, setSelected] = useState(product?.options?.[0]);
   const [qty, setQty] = useState(0);
+  const route = useRoute();
+  // console.log(route.params.id);
   return (
     <ScrollView style={tw`mx-1`} showsVerticalScrollIndicator={false}>
       <Text>{product.title}</Text>
