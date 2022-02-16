@@ -4,7 +4,8 @@ import tw from "tailwind-react-native-classnames";
 import ProductItem from "../components/ProductItem";
 import products from "../assets/products";
 
-const HomeScreen = () => {
+const HomeScreen = ({ searchValue }) => {
+  // console.log(searchValue);
   return (
     <View style={tw` mx-1`}>
       <FlatList
